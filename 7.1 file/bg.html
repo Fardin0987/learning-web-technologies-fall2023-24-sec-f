@@ -1,0 +1,58 @@
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blood Group Form</title>
+  <style>
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    #error-message {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <form id="bloodGroupForm" onsubmit="return validateForm()">
+    <label for="bloodGroup"> Blood Group</label>
+    <select id="bloodGroup" name="bloodGroup">
+      <option value="" disabled selected>Select Blood Group</option>
+      <option value="A+">A+</option>
+      <option value="A-">A-</option>
+      <option value="B+">B+</option>
+      <option value="B-">B-</option>
+      <option value="AB+">AB+</option>
+      <option value="AB-">AB-</option>
+      <option value="O+">O+</option>
+      <option value="O-">O-</option>
+    </select>
+
+    <div id="error-message"></div>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    function validateForm() {
+      var bloodGroup = document.getElementById('bloodGroup').value;
+
+      if (bloodGroup === "") {
+        document.getElementById('error-message').innerText = 'Please select your blood group.';
+        return false;
+      } else {
+        document.getElementById('error-message').innerText = '';
+        alert('Form submitted successfully!\nSelected Blood Group: ' + bloodGroup);
+        return true;
+      }
+    }
+  </script>
+
+</body>
+</html>
+
+

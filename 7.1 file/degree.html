@@ -1,0 +1,70 @@
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Degree Form</title>
+  <style>
+    fieldset {
+      border: 2px solid #000;
+      padding: 8px;
+      margin-bottom: 8px;
+    }
+
+    legend {
+      font-weight: bold;
+      height: 1em; 
+    }
+
+    label {
+      margin-right: 10px;
+    }
+
+    #error-message {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <form id="degreeForm" onsubmit="return validateForm()">
+    <fieldset>
+      <legend>Degree</legend>
+      <label><input type="checkbox" name="degree" value="ssc"> SSC</label>
+      <label><input type="checkbox" name="degree" value="hsc"> HSC</label>
+      <label><input type="checkbox" name="degree" value="bsc"> BSC</label>
+    </fieldset>
+
+    <div id="error-message"></div>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    function validateForm() {
+      var checkboxes = document.getElementsByName('degree');
+      var atLeastOneChecked = false;
+
+      for (var i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+          atLeastOneChecked = true;
+          break;
+        }
+      }
+
+      if (!atLeastOneChecked) {
+        document.getElementById('error-message').innerText = 'Please select at least one degree.';
+        return false;
+      } else {
+        document.getElementById('error-message').innerText = '';
+        return true;
+      }
+    }
+  </script>
+
+</body>
+</html>
+
+
+

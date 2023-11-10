@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name Form</title>
+    <script>
+        function validateForm()
+         {
+            var name = document.getElementById("name").value;
+
+            
+            if (name.trim() === "") {
+                alert("Name cannot be empty");
+                return false;
+            }
+
+            
+            var words = name.split(" ");
+            if (words.length < 2) {
+                alert("Name must contain at least two words");
+                return false;
+            }
+
+           
+            var firstChar = name.charAt(0);
+            if (!(/[a-zA-Z]/).test(firstChar)) {
+                alert("Name must start with a letter");
+                return false;
+            }
+
+            
+            if (!(/^[a-zA-Z. ]*$/).test(name)) {
+                alert("Name can only contain letters and dots");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body>
+
+    <form onsubmit="return validateForm()">
+        <label for="name">Name</label>
+        <br>
+        <input type="text" id="name" name="name">
+        <br>
+        <button type="submit">Submit</button>
+        <br>
+    </form>
+
+</body>
+</html>

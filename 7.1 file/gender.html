@@ -1,0 +1,76 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gender Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #gender-section {
+            display: inline-block; 
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        #gender-options {
+            margin-top: 10px;
+        }
+        #error-message {
+            color: red;
+            display: block;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<form id="genderForm">
+    <div id="gender-section">
+        <label>Gender</label>
+        <div id="gender-options">
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">Male</label>
+
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label>
+
+            <input type="radio" id="others" name="gender" value="others">
+            <label for="others">Others</label>
+        </div>
+    </div>
+    <span id="error-message"></span>
+    <br>
+    <input type="submit" value="Submit">
+</form>
+
+<script>
+    document.getElementById('genderForm').addEventListener('submit', function(event) {
+        var genderOptions = document.getElementsByName('gender');
+        var errorMessage = document.getElementById('error-message');
+        var selectedGender = false;
+
+      
+        for (var i = 0; i < genderOptions.length; i++) {
+            if (genderOptions[i].checked) {
+                selectedGender = true;
+                break;
+            }
+        }
+
+        if (!selectedGender) {
+            errorMessage.textContent = 'Please select a gender';
+            event.preventDefault(); 
+            return;
+        }
+
+     
+        errorMessage.textContent = '';
+    });
+</script>
+
+</body>
+</html>
+
