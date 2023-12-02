@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Shop Management System</title>
+    <script>
+        function searchEmployee() {
+            var searchValue = document.getElementById('searchInput').value;
+
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        document.getElementById('searchResult').innerHTML = xhr.responseText;
+                    } else {
+                        alert('Error: ' + xhr.status);
+                    }
+                }
+            };
+
+            xhr.open('GET', 'search_backend.php?search=' + searchValue, true);
+            xhr.send();
+        }
+
+        function validateRegistration() {
+            var employeeName = document.forms["registrationForm"]["employee_name"].value;
+            var contactNo = document.forms["registrationForm"]["contact_no"].value;
+            var username = document.forms["registrationForm"]["username"].value;
+            var password = document.forms["registrationForm"]["password"].value;
+
+            if (employeeName === "" || contactNo === "" || username === "" || password === "") {
+                alert("All fields must be filled out");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h1>Welcome to the Online Shop Management System</h1>
+    
+    <h2>Login</h2>
+    <form method="post" action="login.php">
+        Username: <input type="text" name="username"><br>
+        Password: <input type="password" name="password"><br>
+        <input type="submit" value="Login">
+    </form>
+
+    <h2>Register</h2>
+    <form name="registrationForm" method="post" action="register.php" onsubmit="return validateRegistration()">
+        Employee Name: <input type="text" name="employee_name"><br>
+        Contact Number: <input type="text" name="contact_no"><br>
+        Username: <input type="text" name="username"><br>
+        Password: <input type="password" name="password"><br>
+        <input type="submit" value="Register">
+    </form>
+
+    <h2>Employee Management</h2>
+    <input type="text" id="searchInput" placeholder="Search Employee">
+    <button onclick="searchEmployee()">Search</button>
+    <div id="searchResult"></div>
+
+    <p>Thank you for visiting our site</p>
+</body>
+</html>

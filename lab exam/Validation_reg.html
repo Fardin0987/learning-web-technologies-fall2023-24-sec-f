@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <script>
+        function validateForm() {
+            var employeeName = document.forms["registrationForm"]["employee_name"].value;
+            var contactNo = document.forms["registrationForm"]["contact_no"].value;
+            var username = document.forms["registrationForm"]["username"].value;
+            var password = document.forms["registrationForm"]["password"].value;
+
+            if (employeeName === "" || contactNo === "" || username === "" || password === "") {
+                alert("All fields must be filled out");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h2>Register</h2>
+    <form name="registrationForm" method="post" action="register.php" onsubmit="return validateForm()">
+        Employee Name: <input type="text" name="employee_name"><br>
+        Contact Number: <input type="text" name="contact_no"><br>
+        Username: <input type="text" name="username"><br>
+        Password: <input type="password" name="password"><br>
+        <input type="submit" value="Register">
+    </form>
+</body>
+</html>
