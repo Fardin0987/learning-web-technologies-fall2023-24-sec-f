@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Management System</title>
+  <style>
+    
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      width: 50%;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+    }
+    input[type="text"],
+    input[type="password"] {
+      margin-bottom: 10px;
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 8px 15px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .success-message {
+      text-align: center;
+      color: green;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Product Management System</h1>
+
+    <h2>Register</h2>
+  
+    <form id="buyerRegistrationForm">
+      <h3>Buyer Registration</h3>
+      <input type="text" id="buyerUsername" placeholder="Username" required>
+      <input type="password" id="buyerPassword" placeholder="Password" required>
+      <button type="submit">Register as Buyer</button>
+    </form>
+
+   
+    <form id="sellerRegistrationForm">
+      <h3>Seller Registration</h3>
+      <input type="text" id="sellerUsername" placeholder="Username" required>
+      <input type="password" id="sellerPassword" placeholder="Password" required>
+      <button type="submit">Register as Seller</button>
+    </form>
+
+    <div class="success-message" id="registrationSuccessMessage" style="display: none;">
+      Successfully Registered!
+    </div>
+
+    <hr>
+
+    <h2>Login</h2>
+   
+    <form id="userLoginForm">
+      <h3>User Login</h3>
+      <input type="text" id="userUsername" placeholder="Username" required>
+      <input type="password" id="userPassword" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+
+    <div class="success-message" id="loginSuccessMessage" style="display: none;">
+      Successfully Logged In!
+    </div>
+
+
+    <form id="adminLoginForm">
+      <h3>Admin Login</h3>
+      <input type="text" id="adminUsername" placeholder="Admin Username" required>
+      <input type="password" id="adminPassword" placeholder="Admin Password" required>
+      <button type="submit">Login as Admin</button>
+    </form>
+  </div>
+
+  <script>
+    
+    document.getElementById('buyerRegistrationForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      document.getElementById('registrationSuccessMessage').style.display = 'block';
+      this.reset();
+    });
+
+   
+    document.getElementById('sellerRegistrationForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      document.getElementById('registrationSuccessMessage').style.display = 'block';
+      this.reset();
+    });
+
+
+    document.getElementById('userLoginForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      document.getElementById('loginSuccessMessage').style.display = 'block';
+      this.reset();
+    });
+
+
+    document.getElementById('adminLoginForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      document.getElementById('loginSuccessMessage').style.display = 'block';
+      this.reset();
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+  
+
+
+
+    
+  
+  
+
+
+
